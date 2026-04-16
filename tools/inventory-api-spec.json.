@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Inventory Management API",
+    "version": "1.0.0",
+    "description": "API to check product availability for the AI Agent."
+  },
+  "paths": {
+    "/check-stock": {
+      "get": {
+        "summary": "Check item stock level",
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "quantity": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
